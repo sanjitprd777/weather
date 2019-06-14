@@ -232,7 +232,19 @@ public class MainActivity extends AppCompatActivity
                             //add clould image in right box
                             ImageView image = new ImageView(MainActivity.this);
                             image.setLayoutParams(new android.view.ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 200));
-                            image.setImageResource(R.drawable.weather);
+                            if(weatherObject.getString("main").equals("Clear")){
+                                image.setImageResource(R.drawable.sunny);
+                            }
+                            else if(weatherObject.getString("main").equals("Clouds")){
+                                image.setImageResource(R.drawable.cloudy);
+                            }
+                            else if(weatherObject.getString("description").equals("light rain")){
+                                image.setImageResource(R.drawable.slight_drizzle);
+                            }
+                            else{
+                                image.setImageResource(R.drawable.drizzle);
+                            }
+
                             right.addView(image);
                             // Adds the view to the layout
 
